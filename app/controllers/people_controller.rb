@@ -60,11 +60,13 @@ class PeopleController < ApplicationController
       Person.create!(
         phonenumber: phonenumber,
         firstname: csv_attributes['First Name'],
-        lastname: csv_attributes['Lsat Name'],
+        lastname: csv_attributes['Last Name'],
         email: csv_attributes['Email'],
         ticket: csv_attributes['Ticket Type']        
       )
     end
+    
+    redirect_to root_path
   end
 
   private

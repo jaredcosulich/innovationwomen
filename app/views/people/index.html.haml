@@ -2,13 +2,21 @@
 
 %table
   %tr
-    %th Phonenumber
+    %th First Name
+    %th Last Name
+    %th Email
+    %th Ticket
+    %th Phone Number
     %th
     %th
     %th
 
   - @people.each do |person|
     %tr
+      %td= person.firstname
+      %td= person.lastname
+      %td= person.email
+      %td= person.ticket
       %td= person.phonenumber
       %td= link_to 'Show', person
       %td= link_to 'Edit', edit_person_path(person)
