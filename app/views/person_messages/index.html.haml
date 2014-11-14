@@ -1,0 +1,21 @@
+%h1 Listing person_messages
+
+%table
+  %tr
+    %th Person
+    %th Message
+    %th
+    %th
+    %th
+
+  - @person_messages.each do |person_message|
+    %tr
+      %td= person_message.person_id
+      %td= person_message.message_id
+      %td= link_to 'Show', person_message
+      %td= link_to 'Edit', edit_person_message_path(person_message)
+      %td= link_to 'Destroy', person_message, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Person message', new_person_message_path
