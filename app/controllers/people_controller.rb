@@ -54,7 +54,7 @@ class PeopleController < ApplicationController
 
     csv.each do |row|
       csv_attributes = row.to_hash
-      phonenumber = csv_attributes['Cell Phone'].gsub(/\s/, '').gsub(/\-/, '')
+      phonenumber = csv_attributes['Cell Phone'].gsub(/[^0-9]/, '')
       next if Person.find_by_phonenumber(phonenumber).present?
       puts phonenumber
       Person.create!(

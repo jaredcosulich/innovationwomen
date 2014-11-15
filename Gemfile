@@ -20,3 +20,4 @@ gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
 gem 'rails_12factor', group: :production
 gem 'nokogiri'
+gem 'twilio-ruby'
