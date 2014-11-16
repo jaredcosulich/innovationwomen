@@ -11,11 +11,13 @@
     <br/>
     = f.text_area :content, rows: 10, cols: 50
 
+  <!--
   .field
     = f.label :send_at, "Send At (leave blank for now)"
     <br/>
     = f.time_select :send_at, ampm: true, prompt: {hour: 'Choose hour', minute: 'Choose minute', second: 'Choose seconds'}
-
+  -->
+  
   <br/>
   .actions
     = f.submit 'Save'
