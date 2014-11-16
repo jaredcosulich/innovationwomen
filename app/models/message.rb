@@ -8,7 +8,12 @@ class Message < ActiveRecord::Base
     
     client = Twilio::REST::Client.new
     
-    people = [Person.new(phonenumber: '6502693205')]
+    ### TEST PEOPLE ###
+    people = ['6502693205', '9173277121', '6179809807', '6092877516'].collect do |test_person|
+      Person.new(phonenumber: test_person)
+    end    
+    ### END TEST PEOPLE ###
+    
     twilio_numbers = ENV['TWILIO_PHONENUMBERS'].split(',')
     
     people.each_with_index do |person, index|
