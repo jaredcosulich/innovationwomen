@@ -1,9 +1,24 @@
 %p#notice= notice
 
 %p
-  %b Phonenumber:
+  %b First Name:
+  = @person.firstname
+%p
+  %b Last Name:
+  = @person.lastname
+%p
+  %b Email:
+  = @person.email
+%p
+  %b Ticket:
+  = @person.ticket
+%p
+  %b Phone Number:
   = @person.phonenumber
 
+
+= link_to 'Back to Dashboard', root_path
+\|
 = link_to 'Edit', edit_person_path(@person)
 \|
 = link_to 'Back', people_path
