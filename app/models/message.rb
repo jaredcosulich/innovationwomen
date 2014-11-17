@@ -2,6 +2,8 @@ require 'twilio-ruby'
  
 class Message < ActiveRecord::Base
 
+  has_many :person_messages
+
   def send_to_all
     return unless completed_at.nil?
     people = Person.all
@@ -9,7 +11,8 @@ class Message < ActiveRecord::Base
     client = Twilio::REST::Client.new
     
     ### TEST PEOPLE ###
-    people = ['6502693205', '9173277121', '6179809807', '6092877516'].collect do |test_person|
+    # people = ['6502693205', '9173277121', '6179809807', '6092877516'].collect do |test_person|
+    people = ['6502693205'].collect do |test_person|
       Person.create(phonenumber: test_person) if Person.where(phonenumber: test_person).blank?
     end    
     ### END TEST PEOPLE ###
@@ -26,6 +29,16 @@ class Message < ActiveRecord::Base
         body: content
       )
       PersonMessage.create(person_id: person.id, message_id: self.id)
+    end
+    
+    update_attributes(completed_at: Time.new)
+  end
+  
+  def status
+    if completed_at
+      'Complete'
+    else
+      "#{person_messages.count} out of #{Person.count}"
     end
   end
 

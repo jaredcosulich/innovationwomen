@@ -1,7 +1,5 @@
 <h2>Startup Weekend Texter</h2>
-<p>
-  <%= link_to "Create A New Message", new_message_path %>
-</p>
+<br/>
 <p>
   <%= link_to "Create A New Person", new_person_path %>
 </p>
@@ -11,3 +9,13 @@
 <p>
   <%= link_to "View All People (#{@people_count})", people_path %>
 </p>
+<br/>
+<p>
+  <%= link_to "Create A New Message", new_message_path, style: 'font-size: larger; padding: 6px 12px; background-color: blue; border: 1px solid #666; color:white; text-decoration:none;' %>
+</p>
+<br/>
+<%- @messages.each do |message| %>
+  <p>
+    <%= link_to "#{truncate(message.content)} (#{message.status})", message %>
+  </p>
+<% end %>
