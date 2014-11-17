@@ -12,9 +12,9 @@ class Message < ActiveRecord::Base
     
     ### TEST PEOPLE ###
     # people = ['6502693205', '9173277121', '6179809807', '6092877516'].collect do |test_person|
-    people = ['6502693205'].collect do |test_person|
-      Person.create(phonenumber: test_person) if Person.where(phonenumber: test_person).blank?
-    end    
+    # people = ['6502693205'].collect do |test_person|
+    #   Person.create(phonenumber: test_person) if Person.where(phonenumber: test_person).blank?
+    # end    
     ### END TEST PEOPLE ###
     
     twilio_numbers = ENV['TWILIO_PHONENUMBERS'].split(',')
