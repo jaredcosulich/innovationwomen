@@ -23,11 +23,19 @@ class Message < ActiveRecord::Base
       next if PersonMessage.where(person_id: person.id, message_id: id).present?
       puts twilio_numbers[index % twilio_numbers.length]
       puts person.twilio_phonenumber
-      client.messages.create(
-        from: "+#{twilio_numbers[index % twilio_numbers.length]}",
-        to: "+#{person.twilio_phonenumber}",
-        body: content
-      )
+      begin
+        client.messages.create(
+          from: "+#{twilio_numbers[index % twilio_numbers.length]}",
+          to: "+#{person.twilio_phonenumber}",
+          body: content
+        )
+      rescue
+        puts ''
+        puts ''
+        puts "FAILED: #{person.twilio_phonenumber}"
+        puts ''
+        puts ''
+      end
       PersonMessage.create(person_id: person.id, message_id: self.id)
     end
     
