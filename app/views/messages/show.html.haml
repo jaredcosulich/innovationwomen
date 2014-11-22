@@ -7,6 +7,8 @@
 %p
   It has been sent to
   = pluralize(@message.person_messages.length, 'person', 'people')
+
+%br
   
 = link_to 'Back To Dashboard', root_path
 \|
