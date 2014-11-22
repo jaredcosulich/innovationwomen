@@ -4,6 +4,10 @@
   %b Content:
   = @message.content
 
+%p
+  It has been sent to
+  = pluralize(@message.person_messages.length, 'person', 'people')
+  
 = link_to 'Back To Dashboard', root_path
 \|
 = link_to 'Edit', edit_message_path(@message)
