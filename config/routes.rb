@@ -1,3 +1,3 @@
 Innovationwomen::Application.routes.draw do
-  # root to: 'dashboard#index' 
+  root to: 'home#index' 
 end

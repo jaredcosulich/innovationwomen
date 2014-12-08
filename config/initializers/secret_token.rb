@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Innovationwomen::Application.config.secret_token = '84381b874feb593f53397dc123cdcdd1e9f717cf115d271c5dsciyh79wwe867fwefhewyfuhwbef8ewuf2397hf2oscsdkjcn741873e43eec0c1254cf5ab4a02082ca3bd1b986e453f'
+Innovationwomen::Application.config.secret_key_base = '60460fc61208a9e1a161964f1fb34bbda43c6ffccb2e0447f1a7857300bafa41f4738ef1cb13577d63ce284057dfe0db1644a682019327fb05e3117dabb174b7'
