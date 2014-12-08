@@ -15,9 +15,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: swtext_development
+  database: innovationwomen_development
   pool: 5
-  username: swtext
+  username: innovationwomen
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -41,15 +41,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: swtext_test
+  database: innovationwomen_test
   pool: 5
-  username: swtext
+  username: innovationwomen
   password:
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: swtext_production
+  database: innovationwomen_production
   pool: 5
-  username: swtext
+  username: innovationwomen
   password:

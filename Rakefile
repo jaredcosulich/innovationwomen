@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Swtext::Application.load_tasks
+Innovationwomen::Application.load_tasks
