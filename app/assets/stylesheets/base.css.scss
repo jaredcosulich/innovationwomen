@@ -1,0 +1,29 @@
+body {
+  padding: 0 120px;
+}
+
+a {
+  color: #14273F;
+  text-decoration: none;
+}
+
+.right {
+  float: right;
+}
+
+.small {
+  font-size: 11px;
+}
+
+.header {
+  border-bottom: 1px solid #ccc;
+  
+  .links {
+    padding-top: 27px;
+    font-weight: bold;
+    a {
+      margin-left: 24px;
+      text-transform: uppercase;
+    }
+  }
+}
