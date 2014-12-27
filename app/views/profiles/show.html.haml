@@ -1,0 +1,39 @@
+.profiles
+  .profile
+    = image_tag @profile.picture.url
+  .details
+    = @profile.description
+
+
+-#
+  %p#notice= notice
+
+  %p
+    %b Name:
+    = @profile.name
+  %p
+  %p
+    %b Location:
+    = @profile.location
+  %p
+    %b Title:
+    = @profile.title
+  %p
+    %b Industry:
+    = @profile.industry
+  %p
+    %b Description:
+  
+  %p
+    %b Twitter:
+    = @profile.twitter
+  %p
+    %b Linkedin:
+    = @profile.linkedin
+  %p
+    %b Website:
+    = @profile.website
+
+  = link_to 'Edit', edit_profile_path(@profile)
+  \|
+  = link_to 'Back', profiles_path
