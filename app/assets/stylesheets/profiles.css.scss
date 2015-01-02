@@ -6,7 +6,7 @@
   
   .profile {
     float: left;
-    width: 40%;
+    width: 35%;
     background-color: #EFEFEF;
     
     .profile-content {
@@ -18,23 +18,47 @@
         color: $blue;
       }
       
-      .name, .location {
-        margin: 0 0 6px 0;
+      .name {
+        margin: 12px 0 6px 0;
       }
       
       .location {
+        margin: 0;
         padding-bottom: 24px;
       }
       
       td {
         width: 50%;
       }
+      
+      .ask-me-to-speak {
+        a, a:hover, a:visited {
+          line-height: 120px;
+          font-size: 15px;
+          
+          span {
+            font-size: 27px;
+            vertical-align: -2px;
+            margin-right: 15px;
+          }
+        }
+      }
+      
+      hr {
+        margin: 24px 24px 24px 0;
+      }
+      
+      .links {
+        a, a:visited, a:hover {
+          color: $blue;
+        }
+      }
     }
   }
   
   .details {
     float: left;
-    width: 60%;
+    width: 65%;
     
     .details-content {
       padding: 12px 30px;

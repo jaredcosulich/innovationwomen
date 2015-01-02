@@ -16,11 +16,25 @@
           %tr
             %td Company
             %td.title-info= @profile.company
+         
+      .ask-me-to-speak.btn-primary
+        = link_to '<span>&ogt;</span> ASK ME TO SPEAK'.html_safe, '', target: '_blank'
+      
+      %hr
+      
+      .links
+        %p= link_to @profile.website, @profile.website, target: '_blank'
+        %p= link_to 'Twitter', @profile.twitter, target: '_blank'
+        %p= link_to 'LinkedIn', @profile.linkedin, target: '_blank'
+      
+      %hr
+      
+      
   .details
     .details-content
       %h2.description= @profile.description
 
-
+  
 -#
   %p#notice= notice
 
