@@ -8,12 +8,27 @@
     float: left;
     width: 40%;
     background-color: #EFEFEF;
-    color: $blue;
     
     .profile-content {
       padding: 30px 0;
       width: 60%;
       margin-left: 40%;
+      
+      .name, .title-info {
+        color: $blue;
+      }
+      
+      .name, .location {
+        margin: 0 0 6px 0;
+      }
+      
+      .location {
+        padding-bottom: 24px;
+      }
+      
+      td {
+        width: 50%;
+      }
     }
   }
   

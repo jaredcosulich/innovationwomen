@@ -2,7 +2,20 @@
   .profile
     .profile-content
       = image_tag @profile.picture.url
-      %h1= @profile.name
+      %h1.name= @profile.name
+      %p.location= @profile.location
+      
+      %table
+        %tbody
+          %tr
+            %td Title
+            %td.title-info= @profile.title
+          %tr
+            %td Industry
+            %td.title-info= @profile.industry
+          %tr
+            %td Company
+            %td.title-info= @profile.company
   .details
     .details-content
       %h2.description= @profile.description
