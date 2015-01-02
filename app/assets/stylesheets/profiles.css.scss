@@ -3,13 +3,32 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .profiles {
+  
   .profile {
     float: left;
     width: 40%;
     background-color: #EFEFEF;
+    color: $blue;
+    
+    .profile-content {
+      padding: 30px 0;
+      width: 60%;
+      margin-left: 40%;
+    }
   }
+  
   .details {
     float: left;
     width: 60%;
+    
+    .details-content {
+      padding: 12px 30px;
+      
+      .description {
+        color: $blue;
+        line-height: 1.5em;
+      }
+    }
   }
+  
 }

@@ -1,8 +1,11 @@
 .profiles
   .profile
-    = image_tag @profile.picture.url
+    .profile-content
+      = image_tag @profile.picture.url
+      %h1= @profile.name
   .details
-    = @profile.description
+    .details-content
+      %h2.description= @profile.description
 
 
 -#
