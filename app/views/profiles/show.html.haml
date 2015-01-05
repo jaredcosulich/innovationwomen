@@ -33,6 +33,11 @@
   .details
     .details-content
       %h2.description= @profile.description
+      
+      - if @profile.youtube_url
+        %iframe{width: "560", height: "315", src: "//www.youtube.com/embed/#{@profile.youtube_url}?rel=0", frameborder: "0", allowfullscreen: 'allowfullscreen'}
+      
+      %p.company-description= simple_format @profile.company_description
 
   
 -#
