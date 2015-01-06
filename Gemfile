@@ -1,24 +1,28 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
-gem 'annotate', group: :development
-gem 'awesome_print', group: [:development, :test]
 gem 'coffee-rails', '~> 4.0.0'
-gem 'database_cleaner'
 gem 'font-awesome-rails'
-gem 'foreman', group: [:development, :test]
 gem 'haml'
 gem 'haml-rails'
 gem 'jquery-rails'
+gem 'nokogiri'
+gem 'paperclip', '~> 4.2'
 gem 'pg'
-gem 'quiet_assets', group: [:development, :test]
 gem 'rails', '4.0.0'
-gem 'rspec-rails', group: [:development, :test]
 gem 'sass-rails', '~> 4.0.0'
-gem 'sdoc', require: false, group: :doc
+gem 'sorcery'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
+
+gem 'sdoc', require: false, group: :doc
+gem 'annotate', group: :development
 gem 'rails_12factor', group: :production
-gem 'nokogiri'
-gem 'sorcery'
-gem 'paperclip', '~> 4.2'
+
+group :development, :test do
+  gem 'awesome_print'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'foreman'
+  gem 'quiet_assets'
+  gem 'rspec-rails'
+end
