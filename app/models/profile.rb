@@ -5,7 +5,7 @@ class Profile < ActiveRecord::Base
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
 
   def youtube_url
-    return if video.index('youtube').nil?
+    return unless video.try(:index, 'youtube')
     return video.split('v=')[1]
   end
   

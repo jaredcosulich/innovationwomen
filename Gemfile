@@ -21,7 +21,6 @@ gem 'rails_12factor', group: :production
 group :development, :test do
   gem 'awesome_print'
   gem 'capybara'
-  gem 'database_cleaner'
   gem 'foreman'
   gem 'quiet_assets'
   gem 'rspec-rails'

@@ -6,7 +6,7 @@ class UserMailer < ActionMailer::Base
   #
   #   en.user_mailer.reset_password_email.subject
   #
-  def reset_password_email(user)
+  def reset_password_email()
     @greeting = "Hi"
 
     mail to: "to@example.org"
