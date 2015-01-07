@@ -10,5 +10,5 @@ class Profile < ActiveRecord::Base
     return unless video.try(:index, 'youtube')
     return video.split('v=')[1]
   end
-  
+
 end

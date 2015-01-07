@@ -39,6 +39,11 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def search
+    @profiles = Profile.basic_search(params[:search])
+    render action: 'index'
+  end
+
   # DELETE /profiles/1
   def destroy
     @profile.destroy

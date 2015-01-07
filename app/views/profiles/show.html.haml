@@ -1,7 +1,7 @@
 .profiles
   .profile
     .profile-content
-      = image_tag @profile.picture.url
+      = image_tag @profile.picture.url(:medium)
       %h1.name= @profile.name
       %p.location= @profile.location
       

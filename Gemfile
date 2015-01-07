@@ -17,6 +17,7 @@ gem 'unicorn'
 gem 'sdoc', require: false, group: :doc
 gem 'annotate', group: :development
 gem 'rails_12factor', group: :production
+gem 'textacular'
 
 group :development, :test do
   gem 'awesome_print'
