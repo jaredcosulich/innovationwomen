@@ -1,4 +1,4 @@
-= form_for @profile do |f|
+= form_for @profile, html: { multipart: true } do |f|
   - if @profile.errors.any?
     #error_explanation
       %h2= "#{pluralize(@profile.errors.count, "error")} prohibited this profile from being saved:"
@@ -19,8 +19,20 @@
     = f.label :industry
     = f.text_field :industry
   .field
+    = f.label :company
+    = f.text_field :company
+  .field
     = f.label :description
     = f.text_area :description
+  .field
+    = f.label :company_description
+    = f.text_area :company_description
+  .field
+    = f.label :super_hero_origin_story
+    = f.text_area :super_hero_origin_story
+  .field
+    = f.label :passion
+    = f.text_field :passion
   .field
     = f.label :twitter
     = f.text_field :twitter
@@ -30,5 +42,11 @@
   .field
     = f.label :website
     = f.text_field :website
+  .field
+    = f.label :video
+    = f.text_field :video
+  .field
+    = f.label :picture
+    = f.file_field :picture
   .actions
     = f.submit 'Save'

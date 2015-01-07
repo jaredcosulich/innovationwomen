@@ -98,15 +98,13 @@ describe ProfilesController do
 
   describe "PUT update" do
     describe "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+      let(:new_attributes) { { location: 'here' } }
 
       it "updates the requested profile" do
         profile = Profile.create! valid_attributes
         put :update, {:id => profile.to_param, :profile => new_attributes}, valid_session
         profile.reload
-        skip("Add assertions for updated state")
+        expect(profile.location).to eq 'here'
       end
 
       it "assigns the requested profile as @profile" do

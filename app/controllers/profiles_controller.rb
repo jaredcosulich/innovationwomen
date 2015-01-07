@@ -53,6 +53,6 @@ class ProfilesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def profile_params
-      params.require(:profile).permit(:name, :location, :title, :industry, :description, :twitter, :linkedin, :website)
+      params.require(:profile).permit(:name, :location, :title, :industry, :description, :twitter, :linkedin, :website, :picture)
     end
 end
