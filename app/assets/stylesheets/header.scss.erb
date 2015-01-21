@@ -2,17 +2,34 @@
   border-bottom: 1px solid #ccc;
   padding: 12px 120px;
   
-  .links {
-    padding-top: 27px;
-    font-weight: bold;
-    a {
-      margin-left: 24px;
-      text-transform: uppercase;
-    }
-  }  
+  .right {
+    text-align: right;
+    .links {
+      padding-top: 12px;
+      font-weight: bold;
+      a {
+        margin-left: 24px;
+        text-transform: uppercase;
+      }
+    }      
+  }
 }
 
 .header_image {
+  position: relative;
   height: 309px;
   background: url(<%= image_path 'header.jpg' %>) no-repeat center center;  
+  
+  h2 {
+    color: red;
+    padding: 30px;
+    width: 300px;
+    line-height: 1.5em;
+  }
+  
+  .roundlogo {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+  }
 }
