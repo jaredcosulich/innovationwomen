@@ -1,0 +1,14 @@
+.actions {
+  background-color: #efefef;
+  overflow: hidden;
+  
+  .action {
+    float: left;
+    width: 25%;
+    
+    .inside {
+      padding: 24px;
+      text-align: center;
+    }
+  }
+}
