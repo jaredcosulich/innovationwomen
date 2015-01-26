@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe HomeController do
+describe WelcomeController do
 
   describe 'GET index' do
     it 'works' do

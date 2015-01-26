@@ -7,8 +7,17 @@
     width: 25%;
     
     .inside {
-      padding: 24px;
+      padding: 24px 12px;
       text-align: center;
     }
+  }
+}
+
+.featured_members {
+  overflow: hidden;
+  background-color: #efefef;
+  .featured_member {
+    width: 25%;
+    float: left;
   }
 }

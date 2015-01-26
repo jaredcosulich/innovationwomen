@@ -1,0 +1,44 @@
+- content_for :head do 
+  %h2 An online speakers bureau for entrepreneurial and technical women
+  .roundlogo= image_tag 'roundlogo.png'
+
+
+.actions
+  .action
+    .inside
+      = link_to image_tag('find_speaker.png'), root_path
+      %h2= link_to 'Find A Speaker', root_path
+      %p= link_to 'Search our database for entrepreneurial and technical women to speak at your event.', root_path
+  .action
+    .inside
+      = link_to image_tag('find_speaker.png'), root_path
+      %h2= link_to 'Become A Speaker', root_path
+      %p= link_to 'Create a profile to be invited to speak and share your expertise. Training and support with public speaking is available.', root_path
+  .action
+    .inside
+      = link_to image_tag('find_speaker.png'), root_path
+      %h2= link_to 'Attend Events', root_path
+      %p= link_to 'Browse the scheduled appearance of members, and learn about our career and networking events.', root_path
+  .action
+    .inside
+      = link_to image_tag('find_speaker.png'), root_path
+      %h2= link_to 'Meet Our Friends', root_path
+      %p= link_to 'View our directory of sponsors, organizational partners, and women\'s advocacy groups for entrepreneurship.', root_path
+
+.news
+  %h2 Latest News
+  
+.featured_members
+  %h2 Featured Members
+  - @featured_members.each do |featured_member|
+    .featured_member
+      = image_tag featured_member.picture.url(:thumb)
+      %h3= link_to(featured_member.name, profile_path(featured_member))
+      %p= featured_member.title
+      %p= featured_member.company
+      %p= featured_member.industry
+      
+  
+
+= link_to 'Sign Up', new_profile_path
+Welcome

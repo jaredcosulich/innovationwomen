@@ -9,7 +9,7 @@
 Profile.create(
   name: 'Rochelle Nemrow',
   location: 'Boston, MA',
-  picture: File.new("#{Rails.root}/app/assets/images/sample_profile.jpg"),
+  picture: File.new("#{Rails.root}/app/assets/images/initial_profiles/rochellehs.jpg"),
   description: "Founder of online program registration and marketing platform, FamilyID, Rochelle is  responsible for strategic direction and growth. In 2010, frustrated by the lack of available online signups for her own children, and seeing the opportunity for marketing family activities, she started FamilyID.",
   title: 'Founder & CEO',
   industry: 'Technology',
