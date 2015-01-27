@@ -1,3 +1,7 @@
+h2 {
+  text-transform: uppercase;
+}
+
 .actions {
   background-color: #efefef;
   overflow: hidden;
@@ -7,17 +11,27 @@
     width: 25%;
     
     .inside {
-      padding: 24px 12px;
+      padding: 12px 6px;
       text-align: center;
     }
   }
 }
 
+.news {
+  padding: 12px 24px;
+}
+
 .featured_members {
   overflow: hidden;
   background-color: #efefef;
+  padding: 12px 24px;
+  
   .featured_member {
     width: 25%;
     float: left;
+    
+    .inner {
+      padding: 12px 0;
+    }
   }
 }
