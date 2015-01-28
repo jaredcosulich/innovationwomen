@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
   # POST /profiles
   def create
     if params.include?(:user)
-      user = User.create(email: params[:user][:email], password: '123456')# rescue nil
+      user = User.create(email: params[:user][:email], password: '123456')
     end
 
     @profile = Profile.new(profile_params.merge(user_id: user.try(:id)))
