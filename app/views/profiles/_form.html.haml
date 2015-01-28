@@ -6,47 +6,49 @@
         - @profile.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :location
-    = f.text_field :location
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :industry
-    = f.text_field :industry
-  .field
-    = f.label :company
-    = f.text_field :company
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :company_description
-    = f.text_area :company_description
-  .field
-    = f.label :super_hero_origin_story
-    = f.text_area :super_hero_origin_story
-  .field
-    = f.label :passion
-    = f.text_field :passion
-  .field
-    = f.label :twitter
-    = f.text_field :twitter
-  .field
-    = f.label :linkedin
-    = f.text_field :linkedin
-  .field
-    = f.label :website
-    = f.text_field :website
-  .field
-    = f.label :video
-    = f.text_field :video
-  .field
-    = f.label :picture
-    = f.file_field :picture
+  %table
+    %tbody
+      %tr.field
+        %td= f.label :name
+        %td= f.text_field :name
+      %tr.field
+        %td= f.label :location
+        %td= f.text_field :location
+      %tr.field
+        %td= f.label :title
+        %td= f.text_field :title
+      %tr.field
+        %td= f.label :industry
+        %td= f.text_field :industry
+      %tr.field
+        %td= f.label :company
+        %td= f.text_field :company
+      %tr.field
+        %td= f.label :description
+        %td= f.text_area :description
+      %tr.field
+        %td= f.label :company_description
+        %td= f.text_area :company_description
+      %tr.field
+        %td= f.label :super_hero_origin_story
+        %td= f.text_area :super_hero_origin_story
+      %tr.field
+        %td= f.label :passion
+        %td= f.text_field :passion
+      %tr.field
+        %td= f.label :twitter
+        %td= f.text_field :twitter
+      %tr.field
+        %td= f.label :linkedin
+        %td= f.text_field :linkedin
+      %tr.field
+        %td= f.label :website
+        %td= f.text_field :website
+      %tr.field
+        %td= f.label :video
+        %td= f.text_field :video
+      %tr.field
+        %td= f.label :picture
+        %td= f.file_field :picture
   .actions
     = f.submit 'Save'
