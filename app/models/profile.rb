@@ -1,6 +1,7 @@
 class Profile < ActiveRecord::Base
   has_one :user
-
+  accepts_nested_attributes_for :user
+  
   validates :name, presence: true
   
   has_attached_file :picture, :styles => { :medium => "240x400>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"

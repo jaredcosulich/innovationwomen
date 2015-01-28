@@ -11,6 +11,10 @@
       %tr.field
         %td= f.label :name
         %td= f.text_field :name
+      = fields_for :user do |ff|
+        %tr.field
+          %td= ff.label :email
+          %td= ff.text_field :email
       %tr.field
         %td= f.label :location
         %td= f.text_field :location

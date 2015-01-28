@@ -7,23 +7,23 @@
   .action
     .inside
       = link_to image_tag('find.png'), find_profile_path
-      %h2= link_to 'Find A Speaker', root_path
-      %p= link_to 'Search our database for entrepreneurial and technical women to speak at your event.', root_path
+      %h2= link_to 'Find A Speaker', find_profile_path
+      %p= link_to 'Search our database for entrepreneurial and technical women to speak at your event.', find_profile_path
   .action
     .inside
       = link_to image_tag('add.png'), new_profile_path
-      %h2= link_to 'Become A Speaker', root_path
-      %p= link_to 'Create a profile to be invited to speak and share your expertise. Training and support with public speaking is available.', root_path
+      %h2= link_to 'Become A Speaker', new_profile_path
+      %p= link_to 'Create a profile to be invited to speak and share your expertise. Training and support with public speaking is available.', new_profile_path
   .action
     .inside
       = link_to image_tag('events.png'), events_path
-      %h2= link_to 'Attend Events', root_path
-      %p= link_to 'Browse the scheduled appearance of members, and learn about our career and networking events.', root_path
+      %h2= link_to 'Attend Events', events_path
+      %p= link_to 'Browse the scheduled appearance of members, and learn about our career and networking events.', events_path
   .action
     .inside
       = link_to image_tag('users.png'), organizations_path
-      %h2= link_to 'Meet Our Friends', root_path
-      %p= link_to 'View our directory of sponsors, organizational partners, and women\'s advocacy groups for entrepreneurship.', root_path
+      %h2= link_to 'Meet Our Friends', organizations_path
+      %p= link_to 'View our directory of sponsors, organizational partners, and women\'s advocacy groups for entrepreneurship.', organizations_path
 
 .news
   %h2 Latest News

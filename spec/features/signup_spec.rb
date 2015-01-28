@@ -3,10 +3,11 @@ require 'rails_helper'
 describe 'Signup' do
   it 'collects new user information' do
     visit root_path
-    expect(page).to have_content 'Welcome'
-    click_on 'Sign Up'
-    expect(page).to have_content 'New profile'
+    expect(page).to have_content 'Find A Speaker'
+    click_on 'Become A Speaker'
+    expect(page).to have_content 'Create A New Profile'
     fill_in 'profile_name', with: 'Julia Stiles'
+    fill_in 'user_email', with: 'julia@example.com'
     fill_in 'profile_location', with: 'Boston'
     fill_in 'profile_title', with: 'Actor'
     fill_in 'profile_industry', with: 'The Arts'
