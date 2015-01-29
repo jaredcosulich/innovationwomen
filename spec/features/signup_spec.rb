@@ -21,7 +21,7 @@ describe 'Signup' do
     fill_in 'profile_super_hero_origin_story', with: 'Bacon ipsum dolor amet pork loin leberkas shank tri-tip, filet mignon picanha boudin meatloaf shankle.'
     fill_in 'profile_passion', with: 'Doing acting and stuff'
     attach_file 'profile_picture', 'spec/fixtures/cat1.jpg'
-    click_on 'Save'
+    click_on 'Submit Profile'
 
     expect(page).to have_xpath('//img[contains(@src, "cat1.jpg")]')
   end
