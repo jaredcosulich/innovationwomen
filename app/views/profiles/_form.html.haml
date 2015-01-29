@@ -10,49 +10,111 @@
     %tbody
       %tr.field
         %td= f.label :name
-        %td= f.text_field :name
+        %td
+          = f.text_field :name
+      %tr.hint
+        %td &nbsp;
+        %td (e.g. Jane Smith)
+
       = fields_for :user do |ff|
         %tr.field
           %td= ff.label :email
           %td= ff.text_field :email
+        %tr.hint
+          %td &nbsp;
+          %td (e.g. jane@email.com)
+
       %tr.field
         %td= f.label :location
         %td= f.text_field :location
+      %tr.hint
+        %td &nbsp;
+        %td (e.g. Boston, MA)
+
       %tr.field
-        %td= f.label :title
+        %td= f.label :title, 'Job Title'
         %td= f.text_field :title
+      %tr.hint
+        %td &nbsp;
+        %td (e.g. CEO)
+
       %tr.field
         %td= f.label :industry
         %td= f.text_field :industry
+      %tr.hint
+        %td &nbsp;
+        %td (e.g. Education)
+
       %tr.field
         %td= f.label :company
         %td= f.text_field :company
+      %tr.hint
+        %td &nbsp;
+        %td (e.g. Smart Company)
+
       %tr.field
         %td= f.label :description
         %td= f.text_area :description
+      %tr.hint
+        %td &nbsp;
+        %td &nbsp;
+
       %tr.field
-        %td= f.label :company_description
+        %td= f.label :company_description, 'Company Description'
         %td= f.text_area :company_description
+      %tr.hint
+        %td &nbsp;
+        %td (e.g. Innovations in education technology)
+
       %tr.field
-        %td= f.label :super_hero_origin_story
+        %td= f.label :super_hero_origin_story, 'Superhero Origin Story'
         %td= f.text_area :super_hero_origin_story
+      %tr.hint
+        %td &nbsp;
+        %td &nbsp;
+
       %tr.field
         %td= f.label :passion
-        %td= f.text_field :passion
+        %td= f.text_area :passion
+      %tr.hint
+        %td &nbsp;
+        %td &nbsp;
+
       %tr.field
         %td= f.label :twitter
         %td= f.text_field :twitter
+      %tr.hint
+        %td &nbsp;
+        %td (e.g. @janesmith)
+
       %tr.field
-        %td= f.label :linkedin
+        %td= f.label :linkedin, 'LinkedIn'
         %td= f.text_field :linkedin
+      %tr.hint
+        %td &nbsp;
+        %td (e.g. http://linkedin.com/janesmith)
+
       %tr.field
         %td= f.label :website
         %td= f.text_field :website
+      %tr.hint
+        %td &nbsp;
+        %td (e.g. http://janesmith.com)
+
       %tr.field
         %td= f.label :video
         %td= f.text_field :video
+      %tr.hint
+        %td &nbsp;
+        %td (e.g. http://youtube.com/myMovie)
+
       %tr.field
         %td= f.label :picture
         %td= f.file_field :picture
+      %tr.hint
+        %td &nbsp;
+        %td &nbsp;
+
+
   .actions
-    = f.submit 'Save'
+    = f.submit 'Submit Profile'

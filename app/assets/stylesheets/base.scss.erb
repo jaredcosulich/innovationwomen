@@ -2,6 +2,9 @@ $blue: #003a79;
 $red: #ec3936;
 $text: #484848;
 
+$small: 9px;
+
+
 body {
   padding: 0;
   margin: 0 auto;
@@ -45,11 +48,49 @@ a, a:hover, a:visited {
 form {
   table {
     padding-top: 12px;
+
+    .hint {
+      td {
+        color: #aaa;
+        font-size: $small;
+        padding-bottom: 24px;
+      }
+    }
+
     td {
       text-align: left;
       width: 210px;
-      font-weight: bold;
-      padding-bottom: 24px;
+
+      label {
+        font-weight: bold;
+      }
+
+      input, textarea, button {
+        border: 1px solid #ccc;
+        padding: 3px;
+        font-size: 1em;
+      }
+
+      input {
+        width: 300px;
+      }
+
+      textarea {
+        height: 120px;
+        width: 360px;
+      }
     }
   }
+
+  .actions {
+    margin-bottom: 60px;
+    background-color: transparent;
+    text-align: center;
+
+    input {
+      padding: 3px;
+      font-size: 1.5em;
+    }
+  }
+
 }
