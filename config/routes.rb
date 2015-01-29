@@ -1,5 +1,7 @@
 Innovationwomen::Application.routes.draw do
-  resources :profiles
+  resources :profiles do
+    resources :topics
+  end
 
   root to: 'welcome#index'
   get 'about', to: 'welcome#about'

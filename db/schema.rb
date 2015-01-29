@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141212201459) do
+ActiveRecord::Schema.define(version: 20150129215657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(version: 20141212201459) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
   end
+
+  create_table "topics", force: true do |t|
+    t.integer "profile_id"
+    t.string  "title"
+    t.text    "description"
+  end
+
+  add_index "topics", ["profile_id"], name: "index_topics_on_profile_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                           null: false
