@@ -17,10 +17,10 @@ class TopicsController < ApplicationController
 
   # POST /topics
   def create
-    @topic = Topic.new(topic_params)
+    @topic = @profile.topics.new(topic_params)
 
     if @topic.save
-      redirect_to @topic, notice: 'Topic was successfully created.'
+      redirect_to @profile, notice: 'Topic was successfully created.'
     else
       render action: 'new'
     end
@@ -29,7 +29,7 @@ class TopicsController < ApplicationController
   # PATCH/PUT /topics/1
   def update
     if @topic.update(topic_params)
-      redirect_to @topic, notice: 'Topic was successfully updated.'
+      redirect_to @profile, notice: 'Topic was successfully updated.'
     else
       render action: 'edit'
     end
@@ -43,7 +43,7 @@ class TopicsController < ApplicationController
   # DELETE /topics/1
   def destroy
     @topic.destroy
-    redirect_to topics_url, notice: 'Topic was successfully destroyed.'
+    redirect_to @profile, notice: 'Topic was successfully destroyed.'
   end
 
   private
