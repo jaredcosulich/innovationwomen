@@ -100,7 +100,7 @@ describe ProfilesController do
         expect(User.count).to equal(0)
         expect(Profile.count).to equal(0)
 
-        post :create, profile: {name: 'Example Exampley'}, user: {email: 'example@example.com'}
+        post :create, profile: {name: 'Example Exampley'}, user: {email: 'example@example.com', password: '123456'}
 
         expect(User.count).to eq(1)
         expect(Profile.count).to eq(1)

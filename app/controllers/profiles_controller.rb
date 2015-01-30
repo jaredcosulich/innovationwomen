@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
   # POST /profiles
   def create
     if params.include?(:user)
-      user = User.create(email: params[:user][:email], password: '123456')
+      user = User.create(email: params[:user][:email], password: params[:user][:password])
     end
 
     @profile = Profile.new(profile_params.merge(user_id: user.try(:id)))
@@ -62,6 +62,6 @@ class ProfilesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def profile_params
-      params.require(:profile).permit(:name, :location, :title, :industry, :description, :twitter, :linkedin, :website, :picture, user_attributes: [:email])
+      params.require(:profile).permit(:name, :location, :title, :industry, :description, :twitter, :linkedin, :website, :picture, user_attributes: [:email, :password])
     end
 end

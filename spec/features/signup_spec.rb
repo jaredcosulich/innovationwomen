@@ -8,6 +8,7 @@ describe 'Signup' do
     expect(page).to have_content 'Create A New Profile'
     fill_in 'profile_name', with: 'Julia Stiles'
     fill_in 'user_email', with: 'julia@example.com'
+    fill_in 'user_password', with: '123456'
     fill_in 'profile_location', with: 'Boston'
     fill_in 'profile_title', with: 'Actor'
     fill_in 'profile_industry', with: 'The Arts'

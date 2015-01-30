@@ -23,6 +23,12 @@
         %tr.hint
           %td &nbsp;
           %td (e.g. jane@email.com)
+        %tr.field
+          %td= ff.label :password
+          %td= ff.password_field :password
+        %tr.hint
+          %td &nbsp;
+          %td Using numbers, letters, and symbols is preferable.
 
       %tr.field
         %td= f.label :location
