@@ -46,7 +46,7 @@
 
       - if current_user_owns_profile || @profile.topics.length > 0
         %hr
-        %h2 Speaking Topics
+        %h2.topics Speaking Topics
         - @profile.topics.each do |topic|
           %h4= topic.title
           %p= topic.description
