@@ -1,7 +1,11 @@
 require 'rails_helper'
 
-describe 'Signup' do
-  it 'collects new user information' do
+describe 'From the profile page' do
+  # before :each do
+  #   Profile.create(:)
+  # end
+  
+  it 'allows you to create topics' do
     visit root_path
     expect(page).to have_content 'Find A Speaker'
     click_on 'Become A Speaker'
@@ -25,6 +29,5 @@ describe 'Signup' do
     click_on 'Submit Profile'
 
     expect(page).to have_xpath('//img[contains(@src, "cat1.jpg")]')
-    expect(page).to have_content('Hi Julia Stiles')
   end
 end

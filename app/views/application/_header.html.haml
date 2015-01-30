@@ -1,9 +1,17 @@
 .header
   .right
-    .search.small
-      = form_tag({controller: 'profiles', action: 'search'}, method: :get) do
-        = text_field_tag :search, params[:search], :id => 'search_field'
-        = submit_tag 'Search', :name => nil
+    .user
+      - if current_user
+        = "Hi #{current_user.profile.try(:name) or current_user.email}"
+        &nbsp; &middot; &nbsp;
+        = link_to 'Sign Out', :logout, method: :post
+      - else
+        = link_to 'Sign In', :login
+    -#
+      .search.small
+        = form_tag({controller: 'profiles', action: 'search'}, method: :get) do
+          = text_field_tag :search, params[:search], :id => 'search_field'
+          = submit_tag 'Search', :name => nil
 
     .links.small
       = link_to 'About', about_path

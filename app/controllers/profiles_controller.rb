@@ -22,10 +22,11 @@ class ProfilesController < ApplicationController
   # POST /profiles
   def create
     if params.include?(:user)
-      user = User.create(email: params[:user][:email], password: params[:user][:password])
+      User.create(email: params[:user][:email], password: params[:user][:password])
+      @user = login(params[:user][:email], params[:user][:password])
     end
 
-    @profile = Profile.new(profile_params.merge(user_id: user.try(:id)))
+    @profile = Profile.new(profile_params.merge(user_id: @user.try(:id)))
     
     if @profile.save
       redirect_to @profile, notice: 'Profile was successfully created.'

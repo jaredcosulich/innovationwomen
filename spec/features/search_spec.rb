@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'search' do
+xdescribe 'search' do
   before do
     Profile.create(name: 'Sally Smith', company: 'IBM')
   end
