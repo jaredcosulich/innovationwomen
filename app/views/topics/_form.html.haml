@@ -1,0 +1,27 @@
+= form_for [@profile, @topic], html: { multipart: true } do |f|
+  - if @topic.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@profile.errors.count, "error")} prohibited this profile from being saved:"
+      %ul
+        - @profile.errors.full_messages.each do |msg|
+          %li= msg
+
+  %table
+    %tbody
+      %tr.field
+        %td= f.label :title
+        %td
+          = f.text_field :title
+      %tr.hint
+        %td &nbsp;
+        %td (e.g. Distributed Workforces and Company Culture)
+
+      %tr.field
+        %td= f.label :description
+        %td= f.text_area :description
+      %tr.hint
+        %td &nbsp;
+        %td &nbsp;
+        
+  .actions
+    = f.submit 'Save Speaking Topic'

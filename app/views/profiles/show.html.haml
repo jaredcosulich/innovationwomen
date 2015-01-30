@@ -1,3 +1,5 @@
+- current_user_owns_profile = (current_user.present? && current_user == @profile.user)
+
 - content_for :head do 
   %h1.page_title= @profile.name
 
@@ -35,14 +37,31 @@
       
   .details
     .details-content
-      %h2.description= @profile.description
+      %h3.description= @profile.description
       
       - if @profile.youtube_url
         %iframe{width: "560", height: "315", src: "//www.youtube.com/embed/#{@profile.youtube_url}?rel=0", frameborder: "0", allowfullscreen: 'allowfullscreen'}
       
       %p.company-description= simple_format @profile.company_description
 
-  
+      - if current_user_owns_profile || @profile.topics.length > 0
+        %hr
+        %h2 Speaking Topics
+        - @profile.topics.each do |topic|
+          %h4= topic.title
+          %p= topic.description
+          
+        - if current_user_owns_profile
+          %p= link_to "Add a speaking topic", new_profile_topic_path(@profile)
+      
+      %hr
+      
+      %h4 Origin Story
+      %p= simple_format @profile.super_hero_origin_story
+            
+      %h4 Your Passion
+      %p= simple_format @profile.passion
+
 -#
   %p#notice= notice
 
