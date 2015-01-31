@@ -14,6 +14,7 @@ Innovationwomen::Application.routes.draw do
   get 'new_event', to: 'welcome#coming_soon'
   get 'events', to: 'welcome#coming_soon'
   get 'organizations', to: 'welcome#coming_soon'
+  get 'new_ask_to_speak', to: 'welcome#coming_soon'
 
   root to: 'welcome#index'
 end

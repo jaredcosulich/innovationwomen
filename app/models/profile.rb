@@ -13,5 +13,15 @@ class Profile < ActiveRecord::Base
     return unless video.try(:index, 'youtube')
     return video.split('v=')[1]
   end
+  
+  def vimeo_url
+    return unless video.try(:index, 'vimeo')
+    return video.split('/').last
+  end
+  
+  def twitter_url
+    return "https://twitter.com/#{twitter.split('@')[1]}" unless twitter.index('@').nil?
+    return twiter
+  end
 
 end

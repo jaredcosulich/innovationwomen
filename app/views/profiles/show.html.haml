@@ -23,13 +23,13 @@
             %td.title-info= @profile.company
 
       .ask-me-to-speak.btn-primary
-        = link_to '<span>&ogt;</span> ASK ME TO SPEAK'.html_safe, '', target: '_blank'
+        = link_to '<span>&ogt;</span> ASK ME TO SPEAK'.html_safe, new_ask_to_speak_path
       
       %hr
       
       .links
         %p= link_to @profile.website, @profile.website, target: '_blank'
-        %p= link_to 'Twitter', @profile.twitter, target: '_blank'
+        %p= link_to 'Twitter', @profile.twitter_url, target: '_blank'
         %p= link_to 'LinkedIn', @profile.linkedin, target: '_blank'
       
       %hr
@@ -41,7 +41,8 @@
       
       - if @profile.youtube_url
         %iframe{width: "560", height: "315", src: "//www.youtube.com/embed/#{@profile.youtube_url}?rel=0", frameborder: "0", allowfullscreen: 'allowfullscreen'}
-      
+      - elsif @profile.vimeo_url
+        %iframe{src: "//player.vimeo.com/video/#{@profile.vimeo_url}?byline=0&portrait=0&badge=0", width: "560", height: "315", frameborder: "0", webkitallowfullscreen: 'webkitallowfullscreen', mozallowfullscreen: 'mozallowfullscreen', allowfullscreen: 'allowfullscreen'}
       %p.company-description= simple_format @profile.company_description
 
       - if current_user_owns_profile || @profile.topics.length > 0
@@ -54,13 +55,16 @@
         - if current_user_owns_profile
           %p= link_to "Add a speaking topic", new_profile_topic_path(@profile)
       
-      %hr
+      - if @profile.super_hero_origin_story or @profile.passion
+        %hr
       
-      %h4 Origin Story
-      %p= simple_format @profile.super_hero_origin_story
+      - if @profile.super_hero_origin_story
+        %h4 Origin Story
+        %p= simple_format @profile.super_hero_origin_story
             
-      %h4 Your Passion
-      %p= simple_format @profile.passion
+      - if @profile.passion
+        %h4 Your Passion
+        %p= simple_format @profile.passion
 
 -#
   %p#notice= notice
