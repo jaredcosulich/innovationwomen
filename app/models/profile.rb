@@ -24,7 +24,7 @@ class Profile < ActiveRecord::Base
     return twitter
   end
 
-  enum industries: [ 
+  enum industry: [ 
     'Accounting and Finance',
     'Airlines/Aviation',
     'Alternative Dispute Resolution',

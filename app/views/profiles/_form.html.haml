@@ -83,7 +83,7 @@
         %td (e.g. http://janesmith.com)
 
       %tr.field
-        %td= f.label :blog_url
+        %td= f.label :blog_url, 'Blog'
         %td= f.text_field :blog_url
       %tr.hint
         %td &nbsp;
@@ -91,7 +91,7 @@
 
       %tr.field
         %td= f.label :industry
-        %td= f.select :industry, Profile.industries, include_blank: true, multiple: true
+        %td= f.select :industry, Profile.industries.keys.to_a, {include_blank: true}#, multiple: true
       %tr.hint
         %td &nbsp;
         %td (e.g. Education)

@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150129215657) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "profiles", force: true do |t|
+  create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
     t.string   "title"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20150129215657) do
     t.string   "website"
     t.string   "blog_url"
     t.text     "keywords"
-    t.integer  "industry"
+    t.string   "industry"
     t.text     "summary"
     t.text     "origin_story"
     t.text     "passion"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20150129215657) do
     t.datetime "picture_updated_at"
   end
 
-  create_table "topics", force: true do |t|
+  create_table "topics", force: :cascade do |t|
     t.integer "profile_id"
     t.string  "title"
     t.text    "description"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20150129215657) do
 
   add_index "topics", ["profile_id"], name: "index_topics_on_profile_id", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                           null: false
     t.string   "crypted_password",                null: false
     t.string   "salt",                            null: false

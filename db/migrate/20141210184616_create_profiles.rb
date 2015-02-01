@@ -11,7 +11,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :website
       t.string :blog_url
       t.text   :keywords
-      t.integer :industry
+      t.string :industry
       t.text :summary
       t.text :origin_story
       t.text :passion
