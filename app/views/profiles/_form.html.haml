@@ -90,11 +90,18 @@
         %td (e.g. http://janesblog.wordpress.com)
 
       %tr.field
+        %td= f.label :keywords, 'Keywords / Presentation Topics (phrases ok)'
+        %td= f.text_area :keywords
+      %tr.hint
+        %td &nbsp;
+        %td (comma-separated)
+
+      %tr.field
         %td= f.label :industry
         %td= f.select :industry, Profile.industries.keys.to_a, {include_blank: true}#, multiple: true
       %tr.hint
         %td &nbsp;
-        %td (e.g. Education)
+        %td &nbsp;
 
 
       %tr.field
@@ -126,11 +133,25 @@
         %td What was the a-ha moment for your company?
 
       %tr.field
+        %td= f.label :travel_distance
+        %td= f.select :travel_distance, Profile.travel_distances.keys.to_a, {include_blank: true}
+      %tr.hint
+        %td &nbsp;
+        %td How far are you willing to travel for speaking engagements?
+
+      %tr.field
+        %td= f.label :charge, 'Charging'
+        %td= f.select :charge, Profile.charges.keys.to_a, {include_blank: true}
+      %tr.hint
+        %td &nbsp;
+        %td Do you/will you charge for speaking?
+
+      %tr.field
         %td= f.label :video
         %td= f.text_field :video
       %tr.hint
         %td &nbsp;
-        %td (e.g. http://youtube.com/myMovie)
+        %td (e.g. http://youtube.com/me_speaking_at_a_conference)
 
       %tr.field
         %td= f.label :picture

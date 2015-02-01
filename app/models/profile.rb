@@ -23,6 +23,22 @@ class Profile < ActiveRecord::Base
     return "https://twitter.com/#{twitter.split('@')[1]}" unless twitter.index('@').nil?
     return twitter
   end
+  
+  enum travel_distance: [
+    '0-25 miles',
+    '50-75 miles',
+    '75-100 miles',
+    '100+miles'
+  ]
+  
+  enum charge: [
+    'I speak for the exposure for myself and my company',
+    'I always get paid for speaking',
+    'I generally get paid for speaking but make exceptions',
+    'I sometimes get paid for speaking',
+    'I need my expenses covered - travel, hotel, meals, etc.',
+    'Everything is negotiable'
+  ]
 
   enum industry: [ 
     'Accounting and Finance',

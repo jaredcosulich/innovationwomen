@@ -16,8 +16,8 @@ class CreateProfiles < ActiveRecord::Migration
       t.text :origin_story
       t.text :passion
       t.text :best_story
-      t.integer :travel_distance
-      t.integer :charge
+      t.string :travel_distance
+      t.string :charge
       t.string :video
       
 
