@@ -37,14 +37,13 @@
       
   .details
     .details-content
-      %h3.description= @profile.description
+      %h3.description= @profile.summary
       
       - if @profile.youtube_url
         %iframe{width: "560", height: "315", src: "//www.youtube.com/embed/#{@profile.youtube_url}?rel=0", frameborder: "0", allowfullscreen: 'allowfullscreen'}
       - elsif @profile.vimeo_url
         %iframe{src: "//player.vimeo.com/video/#{@profile.vimeo_url}?byline=0&portrait=0&badge=0", width: "560", height: "315", frameborder: "0", webkitallowfullscreen: 'webkitallowfullscreen', mozallowfullscreen: 'mozallowfullscreen', allowfullscreen: 'allowfullscreen'}
-      %p.company-description= simple_format @profile.company_description
-
+      
       - if current_user_owns_profile || @profile.topics.length > 0
         %hr
         %h2.topics Speaking Topics
@@ -55,12 +54,12 @@
         - if current_user_owns_profile
           %p= link_to "Add a speaking topic", new_profile_topic_path(@profile)
       
-      - if @profile.super_hero_origin_story or @profile.passion
+      - if @profile.origin_story or @profile.passion
         %hr
       
-      - if @profile.super_hero_origin_story
+      - if @profile.origin_story
         %h4 Origin Story
-        %p= simple_format @profile.super_hero_origin_story
+        %p= simple_format @profile.origin_story
             
       - if @profile.passion
         %h4 Your Passion

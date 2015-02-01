@@ -15,19 +15,20 @@ describe 'From the profile page' do
     fill_in 'user_password', with: '123456'
     fill_in 'profile_location', with: 'Boston'
     fill_in 'profile_title', with: 'Actor'
-    fill_in 'profile_industry', with: 'The Arts'
+    select 'Arts and Crafts', from: 'profile_industry'
     fill_in 'profile_company', with: 'Sony'
     fill_in 'profile_twitter', with: 'https://twitter.com/missjuliastiles'
     fill_in 'profile_linkedin', with: 'http://linkedin.com/in/juliastiles'
     fill_in 'profile_website', with: 'http://juliastiles.com'
-    fill_in 'profile_description', with: 'Star of many movies'
+    fill_in 'profile_blog_url', with: 'http://juliastiles.wordpress.com'
+    fill_in 'profile_summary', with: 'Star of many movies'
     fill_in 'profile_video', with: 'https://www.youtube.com/watch?v=AsY1QgcCT-s'
-    fill_in 'profile_company_description', with: 'Makes movies and stuff'
-    fill_in 'profile_super_hero_origin_story', with: 'Bacon ipsum dolor amet pork loin leberkas shank tri-tip, filet mignon picanha boudin meatloaf shankle.'
+    fill_in 'profile_origin_story', with: 'Bacon ipsum dolor amet pork loin leberkas shank tri-tip, filet mignon picanha boudin meatloaf shankle.'
     fill_in 'profile_passion', with: 'Doing acting and stuff'
     attach_file 'profile_picture', 'spec/fixtures/cat1.jpg'
     click_on 'Submit Profile'
 
     expect(page).to have_xpath('//img[contains(@src, "cat1.jpg")]')
+    expect(page).to have_content('Hi Julia Stiles')
   end
 end

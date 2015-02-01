@@ -8,15 +8,12 @@
 
   %table
     %tbody
-      %tr.field
-        %td= f.label :name
-        %td
-          = f.text_field :name
-      %tr.hint
-        %td &nbsp;
-        %td (e.g. Jane Smith)
-
       = fields_for :user do |ff|
+        %tr
+          %td{colspan: 2}
+            %h4 Account Information
+        %tr
+          %td{colspan: 2} &nbsp;
         %tr.field
           %td= ff.label :email
           %td= ff.text_field :email
@@ -29,13 +26,19 @@
         %tr.hint
           %td &nbsp;
           %td Using numbers, letters, and symbols is preferable.
-
+      
+      %tr
+        %td{colspan: 2}
+          %h4 Personal Information
+      %tr
+        %td{colspan: 2} &nbsp;
       %tr.field
-        %td= f.label :location
-        %td= f.text_field :location
+        %td= f.label :name
+        %td
+          = f.text_field :name
       %tr.hint
         %td &nbsp;
-        %td (e.g. Boston, MA)
+        %td (e.g. Jane Smith)
 
       %tr.field
         %td= f.label :title, 'Job Title'
@@ -45,53 +48,18 @@
         %td (e.g. CEO)
 
       %tr.field
-        %td= f.label :industry
-        %td= f.text_field :industry
-      %tr.hint
-        %td &nbsp;
-        %td (e.g. Education)
-
-      %tr.field
-        %td= f.label :company
+        %td= f.label :company, 'Company Name'
         %td= f.text_field :company
       %tr.hint
         %td &nbsp;
         %td (e.g. Smart Company)
 
       %tr.field
-        %td= f.label :description
-        %td= f.text_area :description
+        %td= f.label :location, 'Primary Location'
+        %td= f.text_field :location
       %tr.hint
         %td &nbsp;
-        %td &nbsp;
-
-      %tr.field
-        %td= f.label :company_description, 'Company Description'
-        %td= f.text_area :company_description
-      %tr.hint
-        %td &nbsp;
-        %td (e.g. Innovations in education technology)
-
-      %tr.field
-        %td= f.label :super_hero_origin_story, 'Superhero Origin Story'
-        %td= f.text_area :super_hero_origin_story
-      %tr.hint
-        %td &nbsp;
-        %td &nbsp;
-
-      %tr.field
-        %td= f.label :passion
-        %td= f.text_area :passion
-      %tr.hint
-        %td &nbsp;
-        %td &nbsp;
-
-      %tr.field
-        %td= f.label :twitter
-        %td= f.text_field :twitter
-      %tr.hint
-        %td &nbsp;
-        %td (e.g. @janesmith)
+        %td (e.g. Boston, MA)
 
       %tr.field
         %td= f.label :linkedin, 'LinkedIn'
@@ -101,11 +69,61 @@
         %td (e.g. http://linkedin.com/janesmith)
 
       %tr.field
+        %td= f.label :twitter
+        %td= f.text_field :twitter
+      %tr.hint
+        %td &nbsp;
+        %td (e.g. @janesmith)
+
+      %tr.field
         %td= f.label :website
         %td= f.text_field :website
       %tr.hint
         %td &nbsp;
         %td (e.g. http://janesmith.com)
+
+      %tr.field
+        %td= f.label :blog_url
+        %td= f.text_field :blog_url
+      %tr.hint
+        %td &nbsp;
+        %td (e.g. http://janesblog.wordpress.com)
+
+      %tr.field
+        %td= f.label :industry
+        %td= f.select :industry, Profile.industries, include_blank: true, multiple: true
+      %tr.hint
+        %td &nbsp;
+        %td (e.g. Education)
+
+
+      %tr.field
+        %td= f.label :summary, 'Your Summary'
+        %td= f.text_area :summary
+      %tr.hint
+        %td &nbsp;
+        %td (250 words or fewer)
+
+      %tr.field
+        %td= f.label :origin_story, 'Origin Story'
+        %td= f.text_area :origin_story
+      %tr.hint
+        %td &nbsp;
+        %td How did you get where you are now?
+
+      %tr.field
+        %td= f.label :passion
+        %td= f.text_area :passion
+      %tr.hint
+        %td &nbsp;
+        %td What topic puts a smile on your face?
+
+      %tr.field
+        %td= f.label :best_story, 'Best Story'
+        %td= f.text_area :best_story
+      %tr.hint
+        %td &nbsp;
+        %td What was the a-ha moment for your company?
 
       %tr.field
         %td= f.label :video
