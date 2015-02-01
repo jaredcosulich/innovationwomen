@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20150129215657) do
     t.string   "website"
     t.string   "blog_url"
     t.text     "keywords"
-    t.string   "industry"
+    t.integer  "industry"
     t.text     "summary"
     t.text     "origin_story"
     t.text     "passion"

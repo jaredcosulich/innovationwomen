@@ -97,7 +97,7 @@
         %td (comma-separated)
 
       %tr.field
-        %td= f.label :industry
+        %td= f.label :industry        
         %td= f.select :industry, Profile.industries.keys.to_a, {include_blank: true}#, multiple: true
       %tr.hint
         %td &nbsp;
