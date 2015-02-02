@@ -4,7 +4,14 @@
   %h1.page_title= @profile.name
 
 .profiles
-  .profile
+  - if current_user_owns_profile
+    .edit_profile
+      Hi
+      = current_user.profile.name
+      &nbsp; &middot; &nbsp;
+      = link_to('Edit Your Profile', edit_profile_path(@profile))
+  
+  .profile  
     .profile-content
       = image_tag @profile.picture.url(:medium)
       %h1.name= @profile.name

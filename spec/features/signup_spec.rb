@@ -25,6 +25,7 @@ describe 'Signup' do
     click_on 'Submit Profile'
 
     expect(page).to have_xpath('//img[contains(@src, "cat1.jpg")]')
+    expect(page).to have_content('Edit Your Profile')    
     expect(page).to have_content('Hi Julia Stiles')
     expect(page).to have_content('Arts and Crafts')
   end

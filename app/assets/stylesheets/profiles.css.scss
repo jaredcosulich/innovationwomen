@@ -3,6 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .profiles {
+
+  .edit_profile {
+    padding: 12px;
+    text-align: center;
+    background-color: $blue;
+    color: white;
+    
+    a {
+      color: white;
+      text-decoration: underline;
+    }
+  }
   
   .profile {
     float: left;
