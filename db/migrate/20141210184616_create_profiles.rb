@@ -19,6 +19,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.integer :travel_distance
       t.integer :charge
       t.string :video
+      t.boolean :featured, default: false
       
 
       t.timestamps
