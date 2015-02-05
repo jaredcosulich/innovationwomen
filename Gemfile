@@ -14,6 +14,7 @@ gem 'sorcery'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
 gem 'aws-sdk'
+gem 'newrelic_rpm'
 
 gem 'sdoc', require: false, group: :doc
 gem 'annotate', group: :development
