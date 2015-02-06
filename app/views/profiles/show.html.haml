@@ -57,6 +57,8 @@
         - @profile.topics.in_order.each do |topic|
           %h4= topic.title
           %p= topic.description
+          - if current_user_owns_profile
+            = link_to("Edit topic", edit_profile_topic_path(@profile, topic))
           
         - if current_user_owns_profile
           %p= link_to "Add a speaking topic", new_profile_topic_path(@profile)
