@@ -22,6 +22,13 @@
       %tr.hint
         %td &nbsp;
         %td &nbsp;
+
+      %tr.field
+        %td= f.label :position
+        %td= f.number_field :position
+      %tr.hint
+        %td &nbsp;
+        %td What order should this topic be displayed in?
         
   .actions
     = f.submit 'Save Speaking Topic'

@@ -9,6 +9,7 @@ class TopicsController < ApplicationController
   # GET /topics/new
   def new
     @topic = Topic.new
+    @topic.position = @profile.topics.length + 1
   end
 
   # GET /topics/1/edit

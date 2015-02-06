@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129215657) do
+ActiveRecord::Schema.define(version: 20150205153441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,9 +44,12 @@ ActiveRecord::Schema.define(version: 20150129215657) do
   end
 
   create_table "topics", force: :cascade do |t|
-    t.integer "profile_id"
-    t.string  "title"
-    t.text    "description"
+    t.integer  "profile_id"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "topics", ["profile_id"], name: "index_topics_on_profile_id", using: :btree

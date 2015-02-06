@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Signup' do
-  it 'collects new user information' do
+  before :each do
     visit root_path
     expect(page).to have_content 'Find A Speaker'
     click_on 'Become A Speaker'
@@ -23,10 +23,23 @@ describe 'Signup' do
     fill_in 'profile_passion', with: 'Doing acting and stuff'
     attach_file 'profile_picture', 'spec/fixtures/cat1.jpg'
     click_on 'Submit Profile'
-
+  end
+  
+  it 'displays new user information' do
     expect(page).to have_xpath('//img[contains(@src, "cat1.jpg")]')
     expect(page).to have_content('Edit Your Profile')    
     expect(page).to have_content('Hi Julia Stiles')
     expect(page).to have_content('Arts and Crafts')
+  end
+
+  it 'allows you to create topics' do
+    click_on 'Add a speaking topic'
+    
+    expect(page).to have_xpath('//input[contains(@value, "1")]')
+    fill_in 'topic_title', with: 'A Topic'
+    fill_in 'topic_description', with: 'A Description'
+    click_on 'Save Speaking Topic'
+    
+    expect(page).to have_content('A Topic')
   end
 end
