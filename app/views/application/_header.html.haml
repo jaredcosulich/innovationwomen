@@ -6,6 +6,8 @@
         &nbsp; &middot; &nbsp;
         = link_to 'Sign Out', :logout, method: :post
       - else
+        = link_to 'Become a Speaker', new_profile_path
+        &nbsp; &middot; &nbsp;
         = link_to 'Sign In', :login
     -#
       .search.small
@@ -20,7 +22,6 @@
       = link_to 'Events', events_path
       = link_to 'Friends', organizations_path
   = link_to image_tag('logo_48.png'), root_path
-  
+
 .header_image
   = yield :head
-  
