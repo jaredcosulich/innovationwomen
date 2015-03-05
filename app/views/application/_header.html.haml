@@ -2,7 +2,8 @@
   .right
     .user
       - if current_user
-        = "Hi #{current_user.profile.try(:name) or current_user.email}"
+        Hi
+        = link_to "#{current_user.profile.try(:name) or current_user.email}", profile_path(current_user.profile)
         &nbsp; &middot; &nbsp;
         = link_to 'Sign Out', :logout, method: :post
       - else
