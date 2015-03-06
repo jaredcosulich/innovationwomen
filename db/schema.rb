@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20150205153441) do
     t.integer  "travel_distance"
     t.integer  "charge"
     t.string   "video"
+    t.boolean  "featured",             default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "picture_file_name"
