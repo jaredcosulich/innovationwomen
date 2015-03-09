@@ -4,9 +4,12 @@
     %br
     = text_field_tag :email
   .field
-    = label_tag :password 
+    = label_tag :password
     %br
     = password_field_tag :password
+  .field
+    = label_tag :remember_me
+    = check_box_tag :remember_me, 1, params[:remember_me]
   %br
   .actions
     = submit_tag "Login"

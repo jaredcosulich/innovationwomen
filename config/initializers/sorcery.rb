@@ -225,7 +225,7 @@ Rails.application.config.sorcery.configure do |config|
     # How long in seconds the session length will be
     # Default: `604800`
     #
-    # user.remember_me_for =
+    user.remember_me_for = 1209600
 
 
     # -- user_activation --
@@ -288,51 +288,52 @@ Rails.application.config.sorcery.configure do |config|
     # -- reset_password --
     # reset password code attribute name.
     # Default: `:reset_password_token`
-    #
-    # user.reset_password_token_attribute_name =
+
+    user.reset_password_token_attribute_name = :reset_password_token
 
 
     # expires at attribute name.
     # Default: `:reset_password_token_expires_at`
-    #
-    # user.reset_password_token_expires_at_attribute_name =
+
+    user.reset_password_token_expires_at_attribute_name = :reset_password_token_expires_at
 
 
     # when was email sent, used for hammering protection.
     # Default: `:reset_password_email_sent_at`
-    #
-    # user.reset_password_email_sent_at_attribute_name =
+
+    user.reset_password_email_sent_at_attribute_name = :reset_password_email_sent_at
+
 
 
     # mailer class. Needed.
     # Default: `nil`
-    #
+
     user.reset_password_mailer = UserMailer
 
 
     # reset password email method on your mailer class.
     # Default: `:reset_password_email`
-    #
-    # user.reset_password_email_method_name =
+
+    user.reset_password_email_method_name = :reset_password_email
 
 
     # when true sorcery will not automatically
     # email password reset details and allow you to
     # manually handle how and when email is sent
     # Default: `false`
-    #
+
     # user.reset_password_mailer_disabled =
 
 
     # how many seconds before the reset request expires. nil for never expires.
     # Default: `nil`
-    #
-    # user.reset_password_expiration_period =
+
+    user.reset_password_expiration_period = '3600'
 
 
     # hammering protection, how long to wait before allowing another email to be sent.
     # Default: `5 * 60`
-    #
+
     # user.reset_password_time_between_emails =
 
 
