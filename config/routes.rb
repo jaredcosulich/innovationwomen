@@ -3,7 +3,8 @@ Innovationwomen::Application.routes.draw do
     resources :topics
   end
   resources :user_sessions
-  # resources :users
+  resources :password_resets, only: [:create, :edit, :update, :new]
+  resources :users
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout

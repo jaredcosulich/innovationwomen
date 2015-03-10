@@ -11,9 +11,6 @@ Innovationwomen::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
-
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
@@ -29,13 +26,31 @@ Innovationwomen::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-  
+
   config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-      :bucket => ENV['S3_BUCKET_NAME'],
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    storage: :s3,
+    s3_credentials: {
+      bucket: ENV['S3_BUCKET_NAME'],
+      access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
+
+   # ActionMailer Config
+   config.action_mailer.default_url_options = { host: 'localhost:5000' }
+   config.action_mailer.delivery_method = :letter_opener
+   config.action_mailer.perform_deliveries = true
+   config.action_mailer.raise_delivery_errors = true
+   config.action_mailer.default charset: 'utf-8'
+   config.action_mailer.delivery_method = :smtp
+
+   config.action_mailer.smtp_settings = {
+     address: 'smtp.gmail.com',
+     port: 587,
+     # domain: ENV['EMAIL_DOMAIN'],
+     authentication: 'plain',
+     enable_starttls_auto: true,
+     user_name: ENV['EMAIL_USERNAME'],
+     password: ENV['EMAIL_PASSWORD']
+   }
 end

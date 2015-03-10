@@ -8,6 +8,11 @@
 
   %body
     = render partial: 'header'
+
+    -# .alert
+    -# -if alert
+    -#   %p= alert
+
     .content= yield
-    
+
     = render partial: 'footer'
