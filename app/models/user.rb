@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   has_one :profile
 
-  validates :email,       presence: true, null: false, uniqueness: true
-  validates :password,    presence: true, null: false
+  validates :email,                 presence: true, null: false, uniqueness: true
+  validates :password,              presence: true, null: false,
+                                    confirmation: true, length: { minimum: 6 }
+  validates :password_confirmation, presence: true, null: false
 end
