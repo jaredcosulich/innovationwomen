@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
-  has_one :profile
+  has_one :profile, dependent: :destroy
 
   validates :email,                 presence: true, null: false, uniqueness: true
   validates :password,              presence: true, null: false,
