@@ -22,6 +22,7 @@ gem 'rails_12factor', group: :production
 gem 'textacular'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'database_cleaner'
   gem 'shoulda'
   gem 'factory_girl_rails'
