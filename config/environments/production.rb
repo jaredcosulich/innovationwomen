@@ -65,13 +65,31 @@ Innovationwomen::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
-  
+
+
   config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-      :bucket => ENV['S3_BUCKET_NAME'],
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    storage: :s3,
+    s3_credentials: {
+      bucket: ENV['S3_BUCKET_NAME'],
+      access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
     }
+  }
+
+  # ActionMailer Config
+  config.action_mailer.default_url_options = { host: 'innovationwomen.com' }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default charset: 'utf-8'
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    address: 'smtpout.secureserver.net',
+    domain: 'innovationwomen.herokuapp.com',
+    port: 80,
+    enable_starttls_auto: true,
+    user_name: ENV['NO_REPLY_USERNAME'],
+    password: ENV['NO_REPLY_PASSWORD'],
+    authentication: 'plain'
   }
 end
