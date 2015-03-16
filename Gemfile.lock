@@ -258,6 +258,7 @@ DEPENDENCIES
   haml
   haml-rails
   jquery-rails
+  launchy
   letter_opener
   newrelic_rpm
   nokogiri

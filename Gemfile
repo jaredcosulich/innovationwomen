@@ -26,6 +26,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'launchy'
   gem 'dotenv-rails'
   gem 'database_cleaner'
   gem 'shoulda'
