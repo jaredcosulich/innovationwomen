@@ -77,19 +77,20 @@ Innovationwomen::Application.configure do
   }
 
   # ActionMailer Config
-  config.action_mailer.default_url_options = { host: 'innovationwomen.com' }
+  config.action_mailer.asset_host = 'innovationwomen.com'
+  config.action_mailer.default_url_options = { host: 'innovationwomen.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default charset: 'utf-8'
-  config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
     address: 'smtpout.secureserver.net',
-    domain: 'innovationwomen.herokuapp.com',
     port: 80,
-    enable_starttls_auto: true,
+    authentication: :plain,
     user_name: ENV['NO_REPLY_USERNAME'],
     password: ENV['NO_REPLY_PASSWORD'],
-    authentication: 'plain'
+    domain: 'heroku.com',
+    enable_starttls_auto: true
   }
 end
