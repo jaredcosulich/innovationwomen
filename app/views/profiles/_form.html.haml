@@ -1,10 +1,8 @@
 = form_for @profile, html: { multipart: true } do |f|
   - if @profile.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@profile.errors.count, "error")} prohibited this profile from being saved:"
-      %ul
-        - @profile.errors.full_messages.each do |msg|
-          %li= msg
+    %ul
+      - @profile.errors.full_messages.each do |msg|
+        %li= msg
 
   %table
     %tbody
@@ -26,7 +24,10 @@
         %tr.hint
           %td &nbsp;
           %td Using numbers, letters, and symbols is preferable.
-      
+        %tr.field
+          %td= ff.label :password_confirmaiton
+          %td= ff.password_field :password_confirmation
+
       %tr
         %td{colspan: 2}
           %h4 Personal Information
@@ -97,7 +98,7 @@
         %td (comma-separated)
 
       %tr.field
-        %td= f.label :industry        
+        %td= f.label :industry
         %td= f.select :industry, Profile.industries.keys.to_a, {include_blank: true}#, multiple: true
       %tr.hint
         %td &nbsp;

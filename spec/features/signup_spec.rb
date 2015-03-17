@@ -9,6 +9,7 @@ describe 'Signup' do
     fill_in 'profile_name', with: 'Julia Stiles'
     fill_in 'user_email', with: 'julia@example.com'
     fill_in 'user_password', with: '123456'
+    fill_in 'user_password_confirmation', with: '123456'
     fill_in 'profile_location', with: 'Boston'
     fill_in 'profile_title', with: 'Actor'
     select 'Arts and Crafts', from: 'profile_industry'
@@ -24,22 +25,22 @@ describe 'Signup' do
     attach_file 'profile_picture', 'spec/fixtures/cat1.jpg'
     click_on 'Submit Profile'
   end
-  
+
   it 'displays new user information' do
     expect(page).to have_xpath('//img[contains(@src, "cat1.jpg")]')
-    expect(page).to have_content('Edit Your Profile')    
+    expect(page).to have_content('Edit Your Profile')
     expect(page).to have_content('Hi Julia Stiles')
     expect(page).to have_content('Arts and Crafts')
   end
 
   it 'allows you to create topics' do
     click_on 'Add a speaking topic'
-    
+
     expect(page).to have_xpath('//input[contains(@value, "1")]')
     fill_in 'topic_title', with: 'A Topic'
     fill_in 'topic_description', with: 'A Description'
     click_on 'Save Speaking Topic'
-    
+
     expect(page).to have_content('A Topic')
   end
 end

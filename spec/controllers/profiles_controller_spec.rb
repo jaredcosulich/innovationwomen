@@ -94,24 +94,25 @@ describe ProfilesController do
         expect(response).to render_template("new")
       end
     end
-    
+
     describe 'with user information' do
       it 'creates both a user and a profile' do
         expect(User.count).to equal(0)
         expect(Profile.count).to equal(0)
 
-        post :create, profile: {name: 'Example Exampley'}, user: {email: 'example@example.com', password: '123456'}
+        post :create, profile: {name: 'Example Exampley'},
+          user: {email: 'example@example.com', password: '123456', password_confirmation: '123456'}
 
         expect(User.count).to eq(1)
         expect(Profile.count).to eq(1)
 
-        expect(User.first.email).to eq('example@example.com')      
-        expect(Profile.first.name).to eq('Example Exampley')      
+        expect(User.first.email).to eq('example@example.com')
+        expect(Profile.first.name).to eq('Example Exampley')
 
         expect(response).to redirect_to(profile_path(Profile.first))
-      end    
+      end
     end
-    
+
   end
 
   describe "PUT update" do

@@ -1,44 +1,43 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
-  # GET /profiles
   def index
     @profiles = Profile.all
   end
 
-  # GET /profiles/1
   def show
   end
 
-  # GET /profiles/new
   def new
     @profile = Profile.new
   end
 
-  # GET /profiles/1/edit
   def edit
   end
 
-  # POST /profiles
   def create
     if params.include?(:user)
-      User.create(email: params[:user][:email], password: params[:user][:password])
+      User.create(
+        email: params[:user][:email],
+        password: params[:user][:password],
+        password_confirmation: params[:user][:password_confirmation]
+      )
+
       @user = login(params[:user][:email], params[:user][:password])
     end
 
     @profile = Profile.new(profile_params.merge(user_id: @user.try(:id)))
-    
+
     if @profile.save
-      redirect_to @profile, notice: 'Profile was successfully created.'
+      redirect_to @profile
     else
       render action: 'new'
     end
   end
 
-  # PATCH/PUT /profiles/1
   def update
     if @profile.update(profile_params)
-      redirect_to @profile, notice: 'Profile was successfully updated.'
+      redirect_to @profile
     else
       render action: 'edit'
     end
@@ -49,24 +48,38 @@ class ProfilesController < ApplicationController
     render action: 'index'
   end
 
-  # DELETE /profiles/1
   def destroy
     @profile.destroy
-    redirect_to profiles_url, notice: 'Profile was successfully destroyed.'
+    redirect_to profiles_url
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_profile
-      @profile = Profile.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_profile
+    @profile = Profile.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def profile_params
-      params.require(:profile).permit(
-        :name, :location, :title, :industry, :company, :summary, :twitter, :linkedin, 
-        :website, :blog_url, :origin_story, :passion, :best_story, :travel_distance, 
-        :charge, :video, :keywords, :picture, user_attributes: [:email, :password]
-      )
-    end
+  def profile_params
+    params.require(:profile).permit(
+      :name,
+      :location,
+      :title,
+      :industry,
+      :company,
+      :summary,
+      :twitter,
+      :linkedin,
+      :website,
+      :blog_url,
+      :origin_story,
+      :passion,
+      :best_story,
+      :travel_distance,
+      :charge,
+      :video,
+      :keywords,
+      :picture,
+      user_attributes: [:email, :password, :password_confirmation]
+    )
+  end
 end

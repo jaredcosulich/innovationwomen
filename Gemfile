@@ -17,11 +17,16 @@ gem 'aws-sdk'
 gem 'newrelic_rpm'
 
 gem 'sdoc', require: false, group: :doc
-gem 'annotate', group: :development
 gem 'rails_12factor', group: :production
 gem 'textacular'
 
+group :development do
+  gem 'annotate'
+  gem 'letter_opener'
+end
+
 group :development, :test do
+  gem 'launchy'
   gem 'dotenv-rails'
   gem 'database_cleaner'
   gem 'shoulda'

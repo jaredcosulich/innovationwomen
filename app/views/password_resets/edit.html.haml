@@ -1,0 +1,24 @@
+%h1 Choose a new password
+= form_for @user, url: password_reset_path(@token), html: { method: :put } do |f|
+  - if @user.errors.any?
+    %h2= "#{pluralize(@user.errors.count, "error")} prohibited your password from being saved:"
+    %ul
+      - @user.errors.full_messages.each do |msg|
+        %li= msg
+
+  = fields_for :user do |ff|
+    .field
+      = ff.label :email
+      %br
+      = ff.text_field :email
+    .field
+      = ff.label :password
+      %br
+      = ff.password_field :password
+    .field
+      = ff.label :password_confirmation
+      %br
+      = ff.password_field :password_confirmation
+    %br
+    .actions
+      = submit_tag "Submit"

@@ -4,7 +4,7 @@ describe 'From the profile page' do
   # before :each do
   #   Profile.create(:)
   # end
-  
+
   it 'allows you to create topics' do
     visit root_path
     expect(page).to have_content 'Find A Speaker'
@@ -13,6 +13,7 @@ describe 'From the profile page' do
     fill_in 'profile_name', with: 'Julia Stiles'
     fill_in 'user_email', with: 'julia@example.com'
     fill_in 'user_password', with: '123456'
+    fill_in 'user_password_confirmation', with: '123456'
     fill_in 'profile_location', with: 'Boston'
     fill_in 'profile_title', with: 'Actor'
     select 'Arts and Crafts', from: 'profile_industry'
