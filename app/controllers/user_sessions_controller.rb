@@ -4,8 +4,8 @@ class UserSessionsController < ApplicationController
   end
 
   def create
-    if @user = login(params[:email], params[:password], params[:remember_me])
-      redirect_back_or_to(root_path, notice: 'Login successful')
+    if @user = login(params[:email], params[:password], params[:remember_me]) || @user = login(params[:email], params[:password])
+      redirect_back_or_to root_path
     else
       flash.now[:alert] = 'Incorrect email or password'
       render action: 'new'
@@ -14,6 +14,6 @@ class UserSessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to(root_path, notice: 'Logged out!')
+    redirect_to root_path
   end
 end
