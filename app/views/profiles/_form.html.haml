@@ -1,7 +1,10 @@
 = form_for @profile, html: { multipart: true } do |f|
-  - if @profile.errors.any?
+  - if @profile.errors.any? or @user.errors.any?
     %ul
       - @profile.errors.full_messages.each do |msg|
+        %li= msg
+    %ul
+      - @user.errors.full_messages.each do |msg|
         %li= msg
 
   %table

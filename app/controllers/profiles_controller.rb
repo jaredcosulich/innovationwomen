@@ -17,18 +17,20 @@ class ProfilesController < ApplicationController
 
   def create
     if params.include?(:user)
-      User.create(
+      @user = User.create(
         email: params[:user][:email],
         password: params[:user][:password],
         password_confirmation: params[:user][:password_confirmation]
       )
-
-      @user = login(params[:user][:email], params[:user][:password])
+      if @user.save
+        @user = login(params[:user][:email], params[:user][:password])
+      end
     end
 
     @profile = Profile.new(profile_params.merge(user_id: @user.try(:id)))
 
-    if @profile.save
+    if @user.save && @profile.save
+      login(params[:user][:email], params[:user][:password])
       redirect_to @profile
     else
       render action: 'new'
