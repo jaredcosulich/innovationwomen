@@ -15,6 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
 gem 'aws-sdk'
 gem 'newrelic_rpm'
+gem 'cancancan', '~> 1.10'
 
 gem 'sdoc', require: false, group: :doc
 gem 'rails_12factor', group: :production
