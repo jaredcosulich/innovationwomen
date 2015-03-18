@@ -3,7 +3,9 @@ class User < ActiveRecord::Base
 
   VALID_EMAIL = /.+@.+\..+/i
 
-  has_one :profile, dependent: :destroy
+  has_one                           :profile, dependent: :destroy
+  has_many                          :user_roles
+  has_many                          :roles, through: :user_roles
 
   validates_format_of :email,       with: VALID_EMAIL
   validates :email,                 presence: true, null: false, uniqueness: true
