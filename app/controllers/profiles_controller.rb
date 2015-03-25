@@ -17,11 +17,17 @@ class ProfilesController < ApplicationController
 
   def create
     if params.include?(:user)
-      User.create(
+      user = User.create(
         email: params[:user][:email],
         password: params[:user][:password],
         password_confirmation: params[:user][:password_confirmation]
       )
+      if user.errors.present?
+        @profile = Profile.new
+        @user = user
+        render :new
+        return
+      end
 
       @user = login(params[:user][:email], params[:user][:password])
     end
