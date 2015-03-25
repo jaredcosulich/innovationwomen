@@ -1,8 +1,13 @@
-%h2 Enter your email to reset your password
-= form_tag password_resets_path, :method => :post do
-  .field
-    = label_tag :email
-    %br
-    = text_field_tag :email, params[:email]
-  .actions
-    = submit_tag "Reset"
+- content_for :head do
+  %h1.page_title  Reset Passweord
+
+.user_sessions.new
+  %h2 Enter your email address
+
+  = form_tag password_resets_path, :method => :post do
+    .field
+      = label_tag :email
+      %br
+      = text_field_tag :email, params[:email]
+    .actions
+      = submit_tag "Reset"
