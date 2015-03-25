@@ -10,6 +10,12 @@
         %tr
           %td{colspan: 2}
             %h4 Account Information
+        - if @user.present? && @user.errors.any?
+          %tr
+            %td{colspan: 2}
+              %ul
+                - @user.errors.full_messages.each do |msg|
+                  %li= msg
         %tr
           %td{colspan: 2} &nbsp;
         %tr.field
@@ -25,8 +31,15 @@
           %td &nbsp;
           %td Using numbers, letters, and symbols is preferable.
         %tr.field
-          %td= ff.label :password_confirmaiton
+          %td= ff.label :password_confirmaiton, 'Password Confirmation'
           %td= ff.password_field :password_confirmation
+
+      %tr
+        %td{colspan: 2}
+          &nbsp;
+      %tr
+        %td{colspan: 2}
+          &nbsp;
 
       %tr
         %td{colspan: 2}
