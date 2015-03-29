@@ -23,7 +23,7 @@ describe 'new profile' do
     click_on 'Submit Profile'
   end
 
-  it 'displays new user information' do
+  it 'displays new profile information' do
     expect(page).to have_xpath('//img[contains(@src, "cat1.jpg")]')
     expect(page).to have_content('Edit Your Profile')
     # expect(page).to have_content('Hi Julia Stiles')
