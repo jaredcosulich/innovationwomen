@@ -6,10 +6,9 @@ class User < ActiveRecord::Base
   has_one :profile, dependent: :destroy
 
   validates_format_of :email,       with: VALID_EMAIL
-  validates :email,                 presence: true, null: false, uniqueness: true
-  validates :password,              presence: true, null: false,
-    confirmation: true, length: { minimum: 6 }
-  validates :password_confirmation, presence: true, null: false
-  validates :first_name,            presence: true, null: false
-  validates :last_name,             presence: true, null: false
+  validates :email,                 presence: true, uniqueness: true
+  validates :password,              presence: true, confirmation: true, length: { minimum: 6 }
+  validates :password_confirmation, presence: true
+  validates :first_name,            presence: true
+  validates :last_name,             presence: true
 end
