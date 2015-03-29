@@ -1,0 +1,51 @@
+= form_for @user, html: { multipart: true } do |f|
+  - if @user.errors.any?
+    %ul
+      - @user.errors.full_messages.each do |msg|
+        %li= msg
+
+  %table
+    %tbody
+      %tr
+        %td{colspan: 2}
+          &nbsp;
+      %tr
+        %td{colspan: 2}
+          &nbsp;
+      %tr
+        %td{colspan: 2}
+          %h4 Sign Up For Innovation Women
+
+      %tr.field
+        %td= f.label :first_name, 'First Name'
+        %td= f.text_field :first_name
+      %tr
+        %td &nbsp;
+
+      %tr.field
+        %td= f.label :last_name, 'Last Name'
+        %td= f.text_field :last_name
+      %tr
+        %td &nbsp;
+
+      %tr.field
+        %td= f.label :email
+        %td= f.text_field :email
+      %tr.hint
+        %td &nbsp;
+        %td (e.g. jane@email.com)
+
+      %tr.field
+        %td= f.label :password
+        %td= f.password_field :password
+      %tr.hint
+        %td &nbsp;
+        %td Using numbers, letters, and symbols is preferable.
+
+      %tr.field
+        %td= f.label :password_confirmaiton, 'Password Confirmation'
+        %td= f.password_field :password_confirmation
+  %br
+  %br
+  .actions
+    = f.submit 'Submit Profile'
