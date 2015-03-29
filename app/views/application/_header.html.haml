@@ -3,11 +3,11 @@
     .user
       - if current_user
         Hi
-        = link_to "#{current_user.profile.try(:name) or current_user.email}", profile_path(current_user.profile)
+        = "#{current_user.profile.try(:name) or current_user.first_name}"
         &nbsp; &middot; &nbsp;
         = link_to 'Sign Out', :logout, method: :post
       - else
-        = link_to 'Become a Speaker', new_profile_path
+        = link_to 'Become a Speaker', new_user_path
         &nbsp; &middot; &nbsp;
         = link_to 'Sign In', :login
     -#
