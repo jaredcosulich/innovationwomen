@@ -16,22 +16,6 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    if params.include?(:user)
-      user = User.create(
-        email: params[:user][:email],
-        password: params[:user][:password],
-        password_confirmation: params[:user][:password_confirmation]
-      )
-      if user.errors.present?
-        @profile = Profile.new
-        @user = user
-        render :new
-        return
-      end
-
-      @user = login(params[:user][:email], params[:user][:password])
-    end
-
     @profile = Profile.new(profile_params.merge(user_id: @user.try(:id)))
 
     if @profile.save

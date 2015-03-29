@@ -6,34 +6,6 @@
 
   %table
     %tbody
-      = fields_for :user do |ff|
-        %tr
-          %td{colspan: 2}
-            %h4 Account Information
-        - if @user.present? && @user.errors.any?
-          %tr
-            %td{colspan: 2}
-              %ul
-                - @user.errors.full_messages.each do |msg|
-                  %li= msg
-        %tr
-          %td{colspan: 2} &nbsp;
-        %tr.field
-          %td= ff.label :email
-          %td= ff.text_field :email
-        %tr.hint
-          %td &nbsp;
-          %td (e.g. jane@email.com)
-        %tr.field
-          %td= ff.label :password
-          %td= ff.password_field :password
-        %tr.hint
-          %td &nbsp;
-          %td Using numbers, letters, and symbols is preferable.
-        %tr.field
-          %td= ff.label :password_confirmaiton, 'Password Confirmation'
-          %td= ff.password_field :password_confirmation
-
       %tr
         %td{colspan: 2}
           &nbsp;
@@ -173,7 +145,6 @@
       %tr.hint
         %td &nbsp;
         %td &nbsp;
-
 
   .actions
     = f.submit 'Submit Profile'
