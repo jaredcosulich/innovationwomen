@@ -4,33 +4,33 @@ class Profile < ActiveRecord::Base
 
   has_many :topics
 
-  validates :name, presence: true
-  
+  validates :title, presence: true
+
   has_attached_file :picture, :styles => { :medium => "240x400>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
-  
+
   def youtube_url
     return unless video.try(:index, 'youtube')
     return video.split('v=')[1]
   end
-  
+
   def vimeo_url
     return unless video.try(:index, 'vimeo')
     return video.split('/').last
   end
-  
+
   def twitter_url
     return "https://twitter.com/#{twitter.split('@')[1]}" unless twitter.index('@').nil?
     return twitter
   end
-  
+
   enum travel_distance: [
     '0-25 miles',
     '50-75 miles',
     '75-100 miles',
     '100+miles'
   ]
-  
+
   enum charge: [
     'I speak for the exposure for myself and my company',
     'I always get paid for speaking',
@@ -40,7 +40,7 @@ class Profile < ActiveRecord::Base
     'Everything is negotiable'
   ]
 
-  enum industry: [ 
+  enum industry: [
     'Accounting and Finance',
     'Airlines/Aviation',
     'Alternative Dispute Resolution',
@@ -189,6 +189,4 @@ class Profile < ActiveRecord::Base
     'Wireless',
     'Writing and Editing'
   ]
-
-
 end
