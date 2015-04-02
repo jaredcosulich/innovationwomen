@@ -1,6 +1,6 @@
 - current_user_owns_profile = (current_user.present? && current_user == @profile.user)
 
-- content_for :head do 
+- content_for :head do
   %h1.page_title= @profile.name
 
 .profiles
@@ -10,13 +10,13 @@
       = current_user.profile.name
       &nbsp; &middot; &nbsp;
       = link_to('Edit Your Profile', edit_profile_path(@profile))
-  
-  .profile  
+
+  .profile
     .profile-content
       = image_tag @profile.picture.url(:medium)
       %h1.name= @profile.name
       %p.location= @profile.location
-      
+
       %table
         %tbody
           %tr
@@ -31,26 +31,23 @@
 
       .ask-me-to-speak.btn-primary
         = link_to '<span>&ogt;</span> ASK ME TO SPEAK'.html_safe, new_ask_to_speak_path
-      
+
       %hr
-      
       .links
         %p= link_to @profile.website, @profile.website, target: '_blank'
         %p= link_to 'Twitter', @profile.twitter_url, target: '_blank'
         %p= link_to 'LinkedIn', @profile.linkedin, target: '_blank'
-      
       %hr
-      
-      
+
   .details
     .details-content
       %h3.description= @profile.summary
-      
+
       - if @profile.youtube_url
         %iframe{width: "560", height: "315", src: "//www.youtube.com/embed/#{@profile.youtube_url}?rel=0", frameborder: "0", allowfullscreen: 'allowfullscreen'}
       - elsif @profile.vimeo_url
         %iframe{src: "//player.vimeo.com/video/#{@profile.vimeo_url}?byline=0&portrait=0&badge=0", width: "560", height: "315", frameborder: "0", webkitallowfullscreen: 'webkitallowfullscreen', mozallowfullscreen: 'mozallowfullscreen', allowfullscreen: 'allowfullscreen'}
-      
+
       - if current_user_owns_profile || @profile.topics.length > 0
         %hr
         %h2.topics Speaking Topics
@@ -59,17 +56,17 @@
           %p= topic.description
           - if current_user_owns_profile
             = link_to("Edit topic", edit_profile_topic_path(@profile, topic))
-          
+
         - if current_user_owns_profile
           %p= link_to "Add a speaking topic", new_profile_topic_path(@profile)
-      
+
       - if @profile.origin_story or @profile.passion
         %hr
-      
+
       - if @profile.origin_story
         %h4 Origin Story
         %p= simple_format @profile.origin_story
-            
+
       - if @profile.passion
         %h4 Your Passion
         %p= simple_format @profile.passion
@@ -92,7 +89,7 @@
     = Profile.industries[@profile.industry]
   %p
     %b Description:
-  
+
   %p
     %b Twitter:
     = @profile.twitter
