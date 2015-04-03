@@ -1,13 +1,7 @@
 - content_for :head do
-  %h1.page_title  Reset Passweord
+  %h1.page_title Reset Passweord
 
-.user_sessions.new
+.password_resets.new
   %h2 Enter your email address
 
-  = form_tag password_resets_path, :method => :post do
-    .field
-      = label_tag :email
-      %br
-      = text_field_tag :email, params[:email]
-    .actions
-      = submit_tag "Reset"
+  = render 'new'
