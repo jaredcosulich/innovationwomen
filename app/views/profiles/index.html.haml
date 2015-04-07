@@ -24,5 +24,6 @@
       %td= profile.website
       - if logged_in? && current_user.owns?(profile)
         %td= link_to 'Edit', edit_profile_path(profile)
+        %td &#124;
         %td= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' }
 %br
