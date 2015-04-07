@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profile.new(profile_params.merge(user_id: @user.try(:id)))
+    @profile = Profile.new(profile_params)
 
     if @profile.save
       redirect_to @profile
@@ -69,7 +69,6 @@ class ProfilesController < ApplicationController
       :video,
       :keywords,
       :picture,
-      user_attributes: [:email, :password, :password_confirmation]
     )
   end
 end
