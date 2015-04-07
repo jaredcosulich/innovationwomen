@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
   validates :first_name,            presence: true
   validates :last_name,             presence: true
+
+  def owns?(profile)
+    profile.user_id == id
+  end
 end
