@@ -22,9 +22,7 @@
       %td= profile.twitter
       %td= profile.linkedin
       %td= profile.website
-      %td= link_to 'Edit', edit_profile_path(profile)
-      %td= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' }
-
+      - if logged_in? && current_user.owns?(profile)
+        %td= link_to 'Edit', edit_profile_path(profile)
+        %td= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' }
 %br
-
-= link_to 'New Profile', new_profile_path
