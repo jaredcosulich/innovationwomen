@@ -2,7 +2,7 @@ Innovationwomen::Application.routes.draw do
   resources :profiles do
     resources :topics
   end
-  resources :user_sessions
+  resources :user_sessions, only: [:new, :create, :destroy]
   resources :password_resets, only: [:create, :edit, :update, :new]
   resources :users
 
