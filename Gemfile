@@ -17,10 +17,15 @@ gem 'aws-sdk'
 gem 'newrelic_rpm'
 gem 'rolify'
 gem 'cancan'
-
-gem 'sdoc', require: false, group: :doc
-gem 'rails_12factor', group: :production
 gem 'textacular'
+
+group :doc do
+  gem 'sdoc', require: false
+end
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development do
   gem 'annotate'
