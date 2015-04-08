@@ -6,8 +6,8 @@ Innovationwomen::Application.routes.draw do
   resources :password_resets, only: [:create, :edit, :update, :new]
   resources :users
 
-  get 'login' => 'user_sessions#new', :as => :login
-  post 'logout' => 'user_sessions#destroy', :as => :logout
+  get 'login' => 'user_sessions#new', as: :login
+  post 'logout' => 'user_sessions#destroy', as: :logout
 
   get 'about', to: 'welcome#about'
   get 'search', to: 'profiles#search'
