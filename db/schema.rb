@@ -11,65 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150205153441) do
+ActiveRecord::Schema.define(version: 20150318224406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "profiles", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "name"
-    t.string   "title"
-    t.string   "company"
-    t.string   "location"
-    t.string   "linkedin"
-    t.string   "twitter"
-    t.string   "website"
-    t.string   "blog_url"
-    t.text     "keywords"
-    t.integer  "industry"
-    t.text     "summary"
-    t.text     "origin_story"
-    t.text     "passion"
-    t.text     "best_story"
-    t.integer  "travel_distance"
-    t.integer  "charge"
-    t.string   "video"
-    t.boolean  "featured",             default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "picture_file_name"
-    t.string   "picture_content_type"
-    t.integer  "picture_file_size"
-    t.datetime "picture_updated_at"
+  create_table "event_manager_profiles", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  create_table "topics", force: :cascade do |t|
-    t.integer  "profile_id"
-    t.string   "title"
-    t.text     "description"
-    t.integer  "position"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "topics", ["profile_id"], name: "index_topics_on_profile_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                           null: false
-    t.string   "crypted_password",                null: false
-    t.string   "salt",                            null: false
+    t.string   "email",                        null: false
+    t.string   "crypted_password",             null: false
+    t.string   "salt",                         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
-    t.string   "reset_password_token"
-    t.datetime "reset_password_token_expires_at"
-    t.datetime "reset_password_email_sent_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", using: :btree
 
 end
