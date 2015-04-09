@@ -19,7 +19,10 @@
     .links.small
       = link_to 'About', about_path
       = link_to 'For Event Managers', new_event_path
-      = link_to 'For Speakers', (current_user ? current_user.profile : new_profile_path)
+      - if logged_in?
+        = link_to 'For Speakers', (current_user ? user_profile_path(current_user, current_user.id) : new_user_profile_path)
+      - else
+        = link_to 'For Speakers', new_user_path
       = link_to 'Events', events_path
       = link_to 'Friends', organizations_path
   = link_to image_tag('logo_48.png'), root_path
