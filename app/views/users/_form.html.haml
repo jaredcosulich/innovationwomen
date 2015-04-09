@@ -14,7 +14,7 @@
           &nbsp;
       %tr
         %td{colspan: 2}
-          %h4 Sign Up For Innovation Women
+          %h2 Sign Up For Innovation Women
 
       %tr.field
         %td= f.label :first_name, 'First Name'
@@ -45,6 +45,10 @@
       %tr.field
         %td= f.label :password_confirmaiton, 'Password Confirmation'
         %td= f.password_field :password_confirmation
+  %br
+  Already a Member?
+  = link_to 'Log In', login_path
+  %br
   %br
   %br
   .actions
