@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   validates :password,                      presence: true, null: false,
                                             confirmation: true, length: { minimum: 6 }
   validates :password_confirmation,         presence: true, null: false
-  validates :admin,                         inclusion: [true, false]
+  # validates :admin,                         inclusion: [true, false]
 
   def owns?(profile)
     profile.user_id == id
