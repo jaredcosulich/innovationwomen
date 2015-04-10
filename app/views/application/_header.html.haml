@@ -3,7 +3,7 @@
     .user
       - if current_user
         Hi
-        = link_to "#{current_user.profile.try(:name) or current_user.email}", profile_path(current_user.profile)
+        = "#{current_user.profile.try(:name) or current_user.email}"
         &nbsp; &middot; &nbsp;
         = link_to 'Sign Out', :logout, method: :post
       - else
